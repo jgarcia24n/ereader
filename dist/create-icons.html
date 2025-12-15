@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+</head>
+<body>
+    <canvas id="canvas192" width="192" height="192" style="display:none;"></canvas>
+    <canvas id="canvas512" width="512" height="512" style="display:none;"></canvas>
+    
+    <script>
+        // Create 192x192 icon
+        const canvas192 = document.getElementById('canvas192');
+        const ctx192 = canvas192.getContext('2d');
+        
+        // Background gradient
+        const gradient192 = ctx192.createLinearGradient(0, 0, 192, 192);
+        gradient192.addColorStop(0, '#2563eb');
+        gradient192.addColorStop(1, '#1e40af');
+        ctx192.fillStyle = gradient192;
+        ctx192.fillRect(0, 0, 192, 192);
+        
+        // Book icon
+        ctx192.fillStyle = 'white';
+        ctx192.fillRect(50, 40, 92, 112);
+        ctx192.fillStyle = '#2563eb';
+        ctx192.fillRect(55, 45, 82, 102);
+        ctx192.fillStyle = 'white';
+        ctx192.fillRect(65, 60, 30, 4);
+        ctx192.fillRect(65, 75, 50, 4);
+        ctx192.fillRect(65, 90, 50, 4);
+        ctx192.fillRect(65, 105, 40, 4);
+        
+        // Create 512x512 icon
+        const canvas512 = document.getElementById('canvas512');
+        const ctx512 = canvas512.getContext('2d');
+        
+        // Background gradient
+        const gradient512 = ctx512.createLinearGradient(0, 0, 512, 512);
+        gradient512.addColorStop(0, '#2563eb');
+        gradient512.addColorStop(1, '#1e40af');
+        ctx512.fillStyle = gradient512;
+        ctx512.fillRect(0, 0, 512, 512);
+        
+        // Book icon (scaled)
+        ctx512.fillStyle = 'white';
+        ctx512.fillRect(133, 107, 246, 298);
+        ctx512.fillStyle = '#2563eb';
+        ctx512.fillRect(146, 120, 220, 272);
+        ctx512.fillStyle = 'white';
+        ctx512.fillRect(173, 160, 80, 11);
+        ctx512.fillRect(173, 200, 133, 11);
+        ctx512.fillRect(173, 240, 133, 11);
+        ctx512.fillRect(173, 280, 107, 11);
+        
+        // Download links
+        document.body.innerHTML = '<h2>Right-click to save icons:</h2>';
+        
+        const link192 = document.createElement('a');
+        link192.download = 'icon-192.png';
+        link192.href = canvas192.toDataURL();
+        link192.textContent = 'Download icon-192.png';
+        link192.style.display = 'block';
+        link192.style.margin = '20px';
+        link192.style.fontSize = '18px';
+        document.body.appendChild(link192);
+        
+        const link512 = document.createElement('a');
+        link512.download = 'icon-512.png';
+        link512.href = canvas512.toDataURL();
+        link512.textContent = 'Download icon-512.png';
+        link512.style.display = 'block';
+        link512.style.margin = '20px';
+        link512.style.fontSize = '18px';
+        document.body.appendChild(link512);
+        
+        const img192 = document.createElement('img');
+        img192.src = canvas192.toDataURL();
+        img192.style.margin = '20px';
+        img192.style.border = '2px solid #ccc';
+        document.body.appendChild(img192);
+        
+        const img512 = document.createElement('img');
+        img512.src = canvas512.toDataURL();
+        img512.width = 192;
+        img512.style.margin = '20px';
+        img512.style.border = '2px solid #ccc';
+        document.body.appendChild(img512);
+    </script>
+</body>
+</html>
